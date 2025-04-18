@@ -1,0 +1,26 @@
+name: CI for Pull Requests
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set git identity
+        run: |
+          git config --local user.name "thanhnha0404"
+          git config --local user.email "thanhnha04042004@gmail.com"
+
+      - name: Run custom command
+        run: |
+          echo "Running custom command..."
+      - name: Post something
+        run: |
+          echo "Ci for pull request is completed"
